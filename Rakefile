@@ -132,6 +132,7 @@ end
 
 desc 'Initiate IRB console with environment loaded'
 task "console" do
+	# exec "irb -r./app/models/url.rb"
 	exec "irb -r./config/environments/init"
 end
 
