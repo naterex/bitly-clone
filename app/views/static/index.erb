@@ -1,5 +1,4 @@
 <h1><%= @title %></h1>
-<p>Shorten a URL here</p>
 
 <form action="/urls" method="post">
   Enter URL:
@@ -7,17 +6,21 @@
   <input type="submit" value="Submit">
 </form>
 
+<h3><%= params['errors'] %></h3>
+
 <table>
   <tr>
     <th>#</th>
     <th>Original</th>
     <th>Shortened</th>
+    <th>Click count</th>
   </tr>
   <% @urls.each do |url| %>
   <tr>
-    <td><%= url.id%></td>
-    <td><%= url.long_url%></td>
-    <td><%= url.short_url%></td>
+    <td><%= url.id %></td>
+    <td><%= url.long_url %></td>
+    <td><%= url.short_url %></td>
+    <td><%= url.click_count %></td>
   </tr>
   <% end %>
 </table>
