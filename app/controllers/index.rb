@@ -1,5 +1,6 @@
+
 get '/' do
-  @title = "Shorten a URL here"
+  # @title = "SHORTEN. SHARE. MEASURE."
   @urls = Url.all
   puts "[LOG] Getting /"
   puts "[LOG] Params: #{params.inspect}"
@@ -14,21 +15,19 @@ post '/urls' do
   if @url.save
     redirect '/'
   else
-    @errors = @url.errors.messages[:long_url].to_s
-    byebug
-    # @errors = @errors.to_s
+    @errors = @url.errors.messages[:long_url].first
+    # byebug
     redirect "/?errors=#{@errors}"
-    # @urls = Url.all
-    # erb :'static/index'
   end
-  # redirect '/'
 end
 
 #i.e. /q6bda
 get '/:short_url' do
   @url = Url.find_by(short_url: params[:short_url])
-  @url.update_click_count
-  redirect '/'
-  # redirect "http://#{url.long_url}"
-  # erb :"static/short_url"
+  if @url.present?
+    @url.update_click_count
+    redirect "#{@url.long_url}"
+  else
+    redirect "#{@url.long_url}" #
+  end
 end

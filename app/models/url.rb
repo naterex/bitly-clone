@@ -1,9 +1,10 @@
 class Url < ActiveRecord::Base
 	# This is Sinatra! Remember to create a migration!
-  validates :long_url, uniqueness: true, presence: true
-  validates_format_of :long_url, with: /(http:\/\/|https:\/\/)?(www.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/ix , message: "Error: can't shorten, your URL has incorrect format"
+  validates_presence_of :long_url, message: "Error: URL can't be blank, please try again."
+  validates_uniqueness_of :long_url, message: "Error: URL has already been shortened, please try again."
+  validates_format_of :long_url, with: /(http:\/\/|https:\/\/)(www.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?/ix , message: "Error: incorrect URL format, remember to include http:// or https://"
 
-  validates :short_url, uniqueness: true
+  validates_uniqueness_of :short_url
   before_create :shorten
 
   def shorten

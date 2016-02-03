@@ -1,0 +1,82 @@
+/*
+ * General/Utility Styles
+*/
+
+* {
+  -moz-box-sizing: border-box; /* Firexfox */
+  -webkit-box-sizing: border-box;  /* Safari/Chrome/iOS/Android */
+  box-sizing: border-box; /* IE */
+}
+
+body {
+  margin: 0 auto;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+main {
+  width: 100%;
+}
+
+section.header {
+  /*border: 1px solid purple;*/
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  /*margin: 3rem 0 3rem 0;*/ /* DOESN'T WORK, DON'T KNOW WHY */
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: -2%;
+}
+
+.fadeInDownBig {
+  -webkit-animation-delay: 0.25s;
+}
+
+.bounceInRight {
+  -webkit-animation-delay: 1.2s;
+}
+
+.header h2 {
+  font-size: 1.5rem;
+}
+
+section.input-box {
+  /*border: 1px solid blue;*/
+}
+
+section.errors {
+  /*border: 1px solid red;*/
+  padding: 1.5rem 0 1.5rem 0;
+}
+
+section.url-list {
+  /*border: 1px solid green;*/
+}
+
+section.url-list ul li {
+  padding: 1rem 4rem 1rem 4rem;
+}
+
+section.url-list ul li a {
+  text-decoration: none;
+}
+
+section.url-list ul li a span {
+  color: #bdc3c7;
+}
+
+section.url-list ul li a.list-group-item-heading {
+  color: #bdc3c7;
+}
+
+section.url-list ul li a.list-group-item-text {
+  color: #e74c3c;
+  font-weight: bold;
+}

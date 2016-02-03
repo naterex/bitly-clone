@@ -1,26 +1,54 @@
-<h1><%= @title %></h1>
+<section class="header col-md-offset-2 col-md-8">
+  <h1>
+    <span class="animated bounceInLeft">SHORTEN.</span>
+    <span class="animated fadeInDownBig">SHARE.  </span>
+    <span class="animated bounceInRight"> MEASURE.</span>
+  </h1>
+  <h2>Join Bitly, the world's leading link management platform.</h2>
+</section><!-- .header -->
 
-<form action="/urls" method="post">
-  Enter URL:
-  <input type="text" name="long_url">
-  <input type="submit" value="Submit">
-</form>
+<section class="input-box col-md-offset-2 col-md-8">
+  <form class="form-horizontal" action="/urls" method="post">
 
-<h3><%= params['errors'] %></h3>
+    <div class="form-group">
+      <div class="input-group input-group-lg">
+        <!-- <span class="input-group-addon" id="basic-addon3">URL must include http:// or https://</span> -->
+        <input type="text" class="form-control" id="inputText" name="long_url" placeholder="URL must include http:// or https://">
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-lg btn-primary">SHORTEN</button>
+        </span>
 
-<table>
-  <tr>
-    <th>#</th>
-    <th>Original</th>
-    <th>Shortened</th>
-    <th>Click count</th>
-  </tr>
-  <% @urls.each do |url| %>
-  <tr>
-    <td><%= url.id %></td>
-    <td><%= url.long_url %></td>
-    <td><%= url.short_url %></td>
-    <td><%= url.click_count %></td>
-  </tr>
+      </div><!-- .input-group -->
+    </div><!-- .form-group -->
+
+  </form>
+</section><!-- .input-box -->
+
+
+<section class="errors col-md-offset-2 col-md-8">
+  <% unless params['errors'].nil? %>
+
+    <div class="alert alert-danger alert-dismissible" role="alert">
+
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+      <span class="sr-only">Error:</span>
+
+      <%= params['errors'] %>
+
+    </div>
+
   <% end %>
-</table>
+</section><!-- .errors -->
+
+<section class="url-list col-md-offset-2 col-md-8">
+  <ul class="list-group">
+    <% @urls.each do |url| %>
+    <li class="list-group-item">
+      <h4><a href="<%= url.long_url %>" target="_blank" class="list-group-item-heading"><%= url.long_url %></a></h4>
+      <a href="" target="_blank"><span class="pull-right"><%= url.click_count %>&nbsp;&nbsp;&nbsp;<i class="fa fa-bar-chart fa-lg"></i></span></a>
+      <p><a href="<%= url.short_url %>" target="_blank" class="list-group-item-text">bit.ly/<%= url.short_url %></a></p>
+    </li>
+    <% end %>
+  </ul>
+</section>
