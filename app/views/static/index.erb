@@ -4,18 +4,22 @@
     <span class="animated fadeInDownBig">SHARE.  </span>
     <span class="animated bounceInRight"> MEASURE.</span>
   </h1>
-  <h2>Join Bitly, the world's leading link management platform.</h2>
+  <h2>Shorten your links and track their clicks</h2>
 </section><!-- .header -->
 
 <section class="input-box col-md-offset-2 col-md-8">
   <form class="form-horizontal" action="/urls" method="post">
 
-    <div class="form-group">
+    <div class="form-group has-feedback">
       <div class="input-group input-group-lg">
-        <!-- <span class="input-group-addon" id="basic-addon3">URL must include http:// or https://</span> -->
-        <input type="text" class="form-control" id="inputText" name="long_url" placeholder="URL must include http:// or https://">
+
+        <span class="input-group-addon"><i class="fa fa-link"></i></span>
+        <!-- <span class="fa fa-link errspan"></span> -->
+
+        <input type="text" class="form-control" name="long_url" placeholder="Enter link here">
+
         <span class="input-group-btn">
-          <button type="submit" class="btn btn-lg btn-primary">SHORTEN</button>
+          <button type="submit" class="btn btn-lg btn-success">&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa fa-arrow-circle-right fa-lg'></i>&nbsp;&nbsp;&nbsp;&nbsp;</button>
         </span>
 
       </div><!-- .input-group -->
@@ -36,7 +40,7 @@
 
       <%= params['errors'] %>
 
-    </div>
+    </div><!-- .alert -->
 
   <% end %>
 </section><!-- .errors -->
@@ -45,10 +49,10 @@
   <ul class="list-group">
     <% @urls.each do |url| %>
     <li class="list-group-item">
-      <h4><a href="<%= url.long_url %>" target="_blank" class="list-group-item-heading"><%= url.long_url %></a></h4>
-      <a href="" target="_blank"><span class="pull-right"><%= url.click_count %>&nbsp;&nbsp;&nbsp;<i class="fa fa-bar-chart fa-lg"></i></span></a>
-      <p><a href="<%= url.short_url %>" target="_blank" class="list-group-item-text">bit.ly/<%= url.short_url %></a></p>
+      <h3><a href="<%= url.long_url %>" target="_blank" class="list-group-item-heading"><%= url.long_url %></a></h3>
+      <span class="pull-right clearfix"><i class="fa fa-bar-chart fa-lg"></i>&nbsp;<%= url.click_count %>&nbsp;clicks</span>
+      <h4><a href="<%= url.short_url %>" target="_blank" class="list-group-item-text"><%= @site_name %><%= url.short_url %></a></h4>
     </li>
     <% end %>
   </ul>
-</section>
+</section><!-- .url-list -->
