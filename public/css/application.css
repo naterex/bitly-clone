@@ -15,6 +15,7 @@ html {
 
 body {
   margin-bottom: 80px; /* same height as footer */
+  background: #F5F5F5;
 }
 
 .clearfix:after {
@@ -55,7 +56,7 @@ header h2 {
 }
 
 section.input-box {
-  /*border: 1px solid blue;*/
+  border: 1px solid blue;
 }
 
 section.input-box .form-group .input-group input {
@@ -69,8 +70,12 @@ section.input-box .form-group .input-group .input-group-addon {
 }
 
 section.errors {
-  /*border: 1px solid red;*/
+  border: 1px solid red;
   padding: 1rem 0 1rem 0;
+}
+
+section.stats {
+  border: 1px solid purple;
 }
 
 section.url-list {
