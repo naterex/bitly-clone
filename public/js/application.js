@@ -35,7 +35,10 @@ $(document).ready(function() {
           $(".list-group").prepend("<li class='list-group-item'><h3><a id='"
             + data.id + "' href='" + data.long_url + "' target='_blank' class='list-group-item-heading'>"
             + data.long_url + "</a></h3><span class='badge'>Clicks:&nbsp;"
-            + data.click_count + "</span><h4><a href='"
+            + data.click_count + "</span><span class='pull-right'><form id='delete_url' action='/delete/"
+            + data.id + ">' method='post'><button type='submit' class='btn btn-xs btn-danger' "
+            + "data-toggle='tooltip' data-placement='top' title='delete URL'><span class='glyphicon "
+            + "glyphicon-trash'></button></form></span><h4><a href='"
             + data.short_url + "' target='_blank' class='list-group-item-text'>"
             + site_name+data.short_url + "</a></li>"
           );
