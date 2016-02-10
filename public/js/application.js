@@ -1,5 +1,8 @@
 $(document).ready(function() {
 
+  // initialize tooltip for bootstrap button type="submit"
+  $('[data-toggle="tooltip"]').tooltip();
+
   // $(".list-group-item").on("mouseover", function() {
   //   $(this).css("background", "#F1F1F1");
   // });

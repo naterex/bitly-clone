@@ -82,7 +82,9 @@
       <li class="list-group-item">
         <h3><a id="url_<%= url.id %>" href="<%= url.long_url %>" target="_blank" class="list-group-item-heading"><%= url.long_url %>
         </a></h3>
-        <span id="badge" class="badge">Clicks:&nbsp;<%= url.click_count %></span>
+        <span id="badge" class="badge">
+          Clicks:&nbsp;<%= url.click_count %>
+        </span>
         <span class="pull-right">
           <form id="delete_url" action="/delete/<%=url.id%>" method="post">
             <button type="submit" class="btn btn-xs btn-danger" data-toggle="tooltip" data-placement="top" title="Delete URL">

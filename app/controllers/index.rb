@@ -1,5 +1,5 @@
 
-get '/' do
+get "/" do
   puts "[LOG] Getting /"
   puts "[LOG] Params: #{params.inspect}"
 
@@ -9,7 +9,7 @@ get '/' do
   erb :"static/index"
 end
 
-post '/urls' do
+post "/urls" do
   puts "[LOG] Getting /urls"
   puts "[LOG] Params: #{params.inspect}"
   @url = Url.new(long_url: params[:long_url])
@@ -27,7 +27,7 @@ post '/urls' do
 end
 
 #i.e. /q6bda
-get '/:short_url' do
+get "/:short_url" do
   puts "[LOG] Getting /:short_url"
   puts "[LOG] Params: #{params.inspect}"
 
@@ -35,7 +35,7 @@ get '/:short_url' do
 
   if @url.present? # if url found
 
-    if @url.short_url == params['short_url'] # if short_url found
+    if @url.short_url == params["short_url"] # if short_url found
       @url.update_click_count
     end
 
@@ -46,7 +46,15 @@ get '/:short_url' do
     end
 
   else
-    redirect '/'
+    redirect "/"
   end
+end
+
+post "/delete/:id" do
+  puts "[LOG] Getting /delete/:id"
+  puts "[LOG] Params: #{params.inspect}"
+  @url = Url.find(params[:id])
+  @url.destroy
+  redirect "/"
 end
 
