@@ -3,9 +3,9 @@
 */
 
 * {
-  -moz-box-sizing: border-box; /* Firexfox */
-  -webkit-box-sizing: border-box;  /* Safari/Chrome/iOS/Android */
-  box-sizing: border-box; /* IE */
+  /*-moz-box-sizing: border-box; /* Firexfox */
+  /*-webkit-box-sizing: border-box;  /* Safari/Chrome/iOS/Android */
+  /*box-sizing: border-box; /* IE */
 }
 
 html {
@@ -56,7 +56,7 @@ header h2 {
 }
 
 section.input-box {
-  border: 1px solid blue;
+  /*border: 1px solid blue;*/
 }
 
 section.input-box .form-group .input-group input {
@@ -70,16 +70,26 @@ section.input-box .form-group .input-group .input-group-addon {
 }
 
 section.errors {
-  border: 1px solid red;
-  padding: 1rem 0 1rem 0;
+  /*border: 1px solid red;*/
+  padding: 1rem 0 0 0;
 }
 
-section.stats {
-  border: 1px solid purple;
+section.statistics {
+  /*border: 1px solid purple;*/
+  /*padding: 0 0 1rem 0;*/
+  text-align: center;
+}
+
+section.statistics .stats {
+  background: white;
+  padding: 1rem 0 0 0;
+  border-radius: 0.5rem;
+  border-bottom: 3px solid #E6E6E6;
 }
 
 section.url-list {
   /*border: 1px solid green;*/
+  padding: 1rem 0 0 0;
   /*padding-bottom: 80px;*/
 }
 
@@ -105,12 +115,12 @@ section.url-list ul li a:hover {
 }
 
 section.url-list ul li span {
-  color: #bdc3c7;
+  /*color: #bdc3c7;*/
   cursor: default;
 }
 
 section.url-list ul li span:hover {
-  color: #7f8c8d;
+  /*color: #7f8c8d;*/
 }
 
 section.url-list ul li a.list-group-item-heading {

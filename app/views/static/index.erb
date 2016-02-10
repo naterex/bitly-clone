@@ -49,20 +49,39 @@
     <% end %>
   </section><!-- .errors -->
 
-  <section class="stats">
+  <section class="statistics col-md-offset-2 col-md-8">
     <div class="row">
-      <div class="one">
-        One
+
+      <div class="col-xs-4">
+        <div class="stats col-xs-12">
+          <p>244</p>
+          <p>URLs shortened</p>
+        </div>
       </div>
-    </div>
-  </section>
+
+      <div class="col-xs-4">
+        <div class="stats col-xs-12">
+          <p>44</p>
+          <p>Total clicks</p>
+        </div>
+      </div>
+
+      <div class="col-xs-4">
+        <div class="stats col-xs-12">
+          <p>455</p>
+          <p>Saved characters</p>
+        </div>
+      </div>
+
+    </div><!-- .row -->
+  </section><!-- .statistics -->
 
   <section class="url-list col-md-offset-2 col-md-8">
     <ul class="list-group">
       <% @urls.each do |url| %>
       <li class="list-group-item">
-        <h3><a href="<%= url.long_url %>" target="_blank" class="list-group-item-heading"><%= url.long_url %></a></h3>
-        <span class="pull-right clearfix"><i class="fa fa-bar-chart fa-lg"></i>&nbsp;<%= url.click_count %>&nbsp;clicks</span>
+        <h3><a id="url_<%= url.id %>" href="<%= url.long_url %>" target="_blank" class="list-group-item-heading"><%= url.long_url %></a></h3>
+        <span class="badge">Clicks:&nbsp;<%= url.click_count %></span>
         <h4><a href="<%= url.short_url %>" target="_blank" class="list-group-item-text"><%= @site_name %><%= url.short_url %></a></h4>
       </li>
       <% end %>
