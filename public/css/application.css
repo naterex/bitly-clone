@@ -52,7 +52,8 @@ header .bounceInRight {
 
 header h2 {
   font-size: 1.95rem;
-  color: #f39c12;
+  /*color: #f39c12;*/
+  color: #27ae60;
 }
 
 section.input-box {
@@ -111,33 +112,40 @@ section.url-list ul li a {
 
 section.url-list ul li a:hover {
   /*color:hsl(240,65%,75%);*/
-  filter: brightness(5%);
-}
-
-section.url-list ul li span {
-  /*color: #bdc3c7;*/
-  cursor: default;
-}
-
-section.url-list ul li span:hover {
-  /*color: #7f8c8d;*/
+  /*filter: brightness(85%);*/
 }
 
 section.url-list ul li a.list-group-item-heading {
-  color: #bdc3c7;
+  color: #95a5a6;
 }
 
 section.url-list ul li a.list-group-item-heading:hover {
   color: #7f8c8d;
 }
 
+section.url-list ul li span#badge {
+  /*background: #3498db;*/
+  cursor: default;
+}
+
+section.url-list ul li span#badge:hover {
+  /*color: #7f8c8d;*/
+}
+
+section.url-list ul li span.pull-right form button {
+  position: relative;
+  right: -90px;
+  bottom: 2px;
+}
+
 section.url-list ul li a.list-group-item-text {
-  color: #e74c3c;
+  color: #c0392b;
+  /*color: #27ae60;*/
   font-weight: bold;
 }
 
 section.url-list ul li a.list-group-item-text:hover {
-  color: #c0392b;
+  color: #e74c3c;
   font-weight: bold;
 }
 

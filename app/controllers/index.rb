@@ -12,14 +12,17 @@ end
 post '/urls' do
   puts "[LOG] Getting /urls"
   puts "[LOG] Params: #{params.inspect}"
-
   @url = Url.new(long_url: params[:long_url])
 
   if @url.save
-    redirect '/'
+    # parse @url to JSON for AJAX success result
+    @url.to_json
   else
+    # set HTTP status code to 422 (unprocessable entity) to trigger AJAX error
+    status 422
     @errors = @url.errors.messages[:long_url].first
-    redirect "/?errors=#{@errors}"
+    # parse @errors to JSON for AJAX error result
+    @errors.to_json
   end
 end
 
