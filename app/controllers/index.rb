@@ -55,6 +55,12 @@ post "/delete/:id" do
   puts "[LOG] Params: #{params.inspect}"
   @url = Url.find(params[:id])
   @url.destroy
-  redirect "/"
+
+  if @url.destroyed?
+    status 200
+  else
+    status 404 # 404 Not Found
+    redirect "/"
+  end
 end
 
