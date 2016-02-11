@@ -11,7 +11,7 @@
 </nav>
 
 <main>
-  <section class="input-box col-md-offset-2 col-md-8">
+  <section class="input-box row col-md-offset-2 col-md-8">
     <form id="add_url" class="form-horizontal" action="/urls" method="post">
 
       <div class="form-group has-feedback">
@@ -20,7 +20,7 @@
           <span class="input-group-addon"><i class="fa fa-link"></i></span>
           <!-- <span class="fa fa-link errspan"></span> -->
 
-          <input id="input" type="text" class="form-control" name="long_url" required>
+          <input id="input" type="text" class="form-control" name="long_url" placeholder="Enter URL to be shortened" required>
 
           <span class="input-group-btn">
             <button type="submit" class="btn btn-lg btn-success">&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa fa-arrow-circle-right fa-lg'></i>&nbsp;&nbsp;&nbsp;&nbsp;</button>
@@ -49,10 +49,9 @@
     <% end %>
   </section><!-- .errors -->
 
-  <section class="statistics col-md-offset-2 col-md-8">
-    <div class="row">
+  <section class="statistics row col-md-offset-2 col-md-8">
 
-      <div class="col-xs-4">
+    <!--   <div class="col-xs-4">
         <div class="stats col-xs-12">
           <p>244</p>
           <p>URLs shortened</p>
@@ -71,15 +70,14 @@
           <p>455</p>
           <p>Saved characters</p>
         </div>
-      </div>
+      </div> -->
 
-    </div><!-- .row -->
   </section><!-- .statistics -->
 
   <section class="url-list col-md-offset-2 col-md-8">
     <ul class="list-group">
       <% @urls.each do |url| %>
-      <li class="list-group-item">
+      <li class="row list-group-item">
         <h3><a id="url_<%= url.id %>" href="<%= url.long_url %>" target="_blank" class="list-group-item-heading">
           <%= url.long_url %>
         </a></h3>

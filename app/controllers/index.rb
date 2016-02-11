@@ -60,7 +60,6 @@ post "/delete/:id" do
     status 200
   else
     status 404 # 404 Not Found
-    redirect "/"
   end
 end
 
